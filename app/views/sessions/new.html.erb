@@ -1,0 +1,17 @@
+<h1 class="heading">Sign In</h1>
+
+<section class="new-users-form">
+  <%= form_with url: session_path do |form| %>
+    <div class="user-form-row">
+      <label class="user-label">Email:</label>
+      <%= form.email_field :email, class: "user-input", :autofocus => true %>
+    </div>
+
+    <div class="user-form-row">
+      <label class="user-label">Password:</label>
+      <%= form.password_field :password, class: "user-input" %>
+    </div>
+
+    <%= form.submit "Sign In", class: "user-btn" %>
+  <% end %>
+</section>
