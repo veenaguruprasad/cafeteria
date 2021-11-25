@@ -8,7 +8,8 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:current_user_id] = user.id
-      redirect_to "/"
+      # redirect_to "/"
+      render plain: "logged in"
     else
       flash[:error] = "Invalid login credentials."
       redirect_to new_session_path
