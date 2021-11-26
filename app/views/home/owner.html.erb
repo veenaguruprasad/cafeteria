@@ -1,0 +1,30 @@
+<h1 class="heading">Veena's Cafeteria</h1>
+
+<section class="orders-section">
+  <h3>Orders</h3>
+
+  <% Order.all.each do |order| %>
+    <section class="order">
+      <% customer = User.find_by(id: order.user_id) %>
+      <h4 class="customer-name">
+        <%= customer.name %>
+        <span class="gray-color">₹<%= order.amount %></span>
+        <% if order.completed %>
+          <p class="green-color">Completed!</p>
+        <% else %>
+          <%= form_with(url: "/orders/#{order.id}", method: "put") do %>
+            <%= button_tag 'Complete Order', class: "complete-btn" %>
+          <% end %>
+        <% end %>
+      </h4>
+
+      <% order.orderitem.all.each do |order_item| %>
+        <% current_item = Item.find_by(id: order_item.item_id) %>
+        <p>
+          <%= current_item.item_name %>
+          <span class="gray-color"> <%= order_item.quantity %> </span>
+        </p>
+      <% end %>
+    </section>
+  <% end %>
+</section>

@@ -3,7 +3,11 @@ class HomeController < ApplicationController
 
   def index
     if current_user
-      render "dashboard"
+      if current_user.user_type == "owner"
+        render "owner"
+      else
+        render "dashboard"
+      end
     else
       render "index"
     end

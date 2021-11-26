@@ -12,11 +12,8 @@
   justify-items: center;
 }
 
-.submenu-item:hover {
-  background-color: rgb(213, 250, 208);
-}
-
-.item-price {
+.item-price,
+.gray-color {
   color: rgb(66, 66, 66);
   margin: 0 10px;
   font-size: 0.8rem;
@@ -28,4 +25,23 @@
 
 .quantity-field {
   width: 60px;
+}
+
+.green-color {
+  color: darkgreen;
+}
+
+.complete-btn {
+  border: none;
+  color: white;
+  background-color: darkgreen;
+  padding: 10px 30px;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.order {
+  margin: 30px;
+  padding: 30px;
+  background-color: rgb(236, 236, 236);
 }

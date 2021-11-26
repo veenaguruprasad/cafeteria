@@ -11,6 +11,14 @@
   justify-content: space-between;
 }
 
+.add-btn {
+  border: none;
+  color: white;
+  background-color: rgb(63, 228, 63);
+  padding: 10px 30px;
+  cursor: pointer;
+}
+
 .flash {
   color: darkred;
   margin: 50px 0;

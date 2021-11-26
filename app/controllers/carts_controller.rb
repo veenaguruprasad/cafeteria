@@ -1,12 +1,15 @@
 class CartsController < ApplicationController
-  skip_before_action :ensure_user_logged_in
-
   def create
     item_id = params[:button]
     user_id = current_user.id
     quantity = params[:quantity]
-    cart = Cart.create!(user_id: user_id, item_id: item_id, quantity: quantity)
-    redirect_to "/"
+    cart = Cart.new(user_id: user_id, item_id: item_id, quantity: quantity)
+    if cart.save
+      redirect_to "/"
+    else
+      flash[:error] = cart.errors.full_messages.join(", ")
+      redirect_to "/"
+    end
   end
 
   def order
@@ -16,7 +19,7 @@ class CartsController < ApplicationController
       current_user.cart.all.each do |item|
         Orderitem.create!(order_id: new_order.id, item_id: item.item_id, quantity: item.quantity)
         dish = Item.find_by(id: item.item_id)
-        total = total + dish.price*quantity
+        total = total + dish.price*item.quantity
         item.destroy!
       end
       new_order.amount = total
