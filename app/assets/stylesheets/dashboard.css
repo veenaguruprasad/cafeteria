@@ -1,0 +1,18 @@
+.submenu-heading {
+  font-size: 18px;
+  margin: 20px 0 0 0;
+}
+
+.submenu-item {
+  margin: 10px 20px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item-price {
+  color: rgb(66, 66, 66);
+  margin: 0 10px;
+  font-size: 0.8rem;
+}

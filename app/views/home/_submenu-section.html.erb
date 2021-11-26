@@ -1,0 +1,12 @@
+<h3 class="submenu-heading"> <%= section_title %> </h3>
+<ul>
+  <% items.all.each do |item| %>
+    <li class="submenu-item">
+      <label class="submenu-label">
+        <%= item.item_name %>
+        <span class="item-price">₹<%= item.price %></span>
+      </label>
+      <p>Add</p>
+    </li>
+  <% end %>
+</ul>

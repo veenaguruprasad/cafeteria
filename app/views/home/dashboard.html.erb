@@ -1,0 +1,18 @@
+<h1 class="heading">Veena's Cafeteria</h1>
+
+<section class="menu-items">
+  <%= render partial: "submenu-section", locals: {
+    section_title: "Breakfast",
+    items: Item.breakfast
+  } %>
+
+  <%= render partial: "submenu-section", locals: {
+    section_title: "Full Meals",
+    items: Item.meals
+  } %>
+
+  <%= render partial: "submenu-section", locals: {
+    section_title: "Beverages",
+    items: Item.beverages
+  } %>
+</section>
