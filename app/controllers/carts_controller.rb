@@ -10,6 +10,21 @@ class CartsController < ApplicationController
   end
 
   def order
-
+    if current_user.cart.present?
+      new_order = Order.create!(user_id: @current_user.id)
+      total = 0
+      current_user.cart.all.each do |item|
+        Orderitem.create!(order_id: new_order.id, item_id: item.item_id, quantity: item.quantity)
+        dish = Item.find_by(id: item.item_id)
+        total = total + dish.price*quantity
+        item.destroy!
+      end
+      new_order.amount = total
+      new_order.save
+      redirect_to "/"
+    else
+      flash[:error] = "Cart is empty!"
+      redirect_to "/"
+    end
   end
 end
