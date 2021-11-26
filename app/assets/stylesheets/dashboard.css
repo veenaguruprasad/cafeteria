@@ -9,10 +9,23 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  justify-items: center;
+}
+
+.submenu-item:hover {
+  background-color: rgb(213, 250, 208);
 }
 
 .item-price {
   color: rgb(66, 66, 66);
   margin: 0 10px;
   font-size: 0.8rem;
+}
+
+.cart-section {
+  margin-bottom: 30px;
+}
+
+.quantity-field {
+  width: 60px;
 }

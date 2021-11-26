@@ -16,3 +16,19 @@
     items: Item.beverages
   } %>
 </section>
+
+<section class="cart-section">
+  <h3>Cart</h3>
+
+  <% @current_user.cart.all.each do |cart_item| %>
+    <% item = Item.find_by(id: cart_item.item_id) %>
+    <p>
+      <%= item.item_name %>
+      <%= cart_item.quantity %>
+    </p>
+  <% end %>
+
+  <%= form_with(url: "/order", method: "post", class: "input-section") do %>
+    <%= button_tag 'Place Order', class: "add-btn" %>
+  <% end %>
+</section>
