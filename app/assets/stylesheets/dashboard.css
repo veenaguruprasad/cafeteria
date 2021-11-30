@@ -45,3 +45,16 @@
   padding: 30px;
   background-color: rgb(236, 236, 236);
 }
+
+.trash-btn {
+  height: 20px;
+  width: 20px;
+  margin-left: 50px;
+}
+
+.flex-li {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  /* justify-content: space-between; */
+}

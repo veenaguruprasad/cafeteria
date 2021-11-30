@@ -22,13 +22,18 @@
 <section class="cart-section">
   <h3 class="heading">Cart</h3>
 
-  <% @current_user.cart.all.each do |cart_item| %>
-    <% item = Item.find_by(id: cart_item.item_id) %>
-    <p>
-      <%= item.item_name %>
-      <%= cart_item.quantity %>
-    </p>
-  <% end %>
+  <ul>
+    <% @current_user.cart.all.each do |cart_item| %>
+      <% item = Item.find_by(id: cart_item.item_id) %>
+      <li class="flex-li">
+        <%= item.item_name %>
+        <%= cart_item.quantity %>
+        <%= form_with(url: "/carts/#{cart_item.id}", method: "delete") do %>
+          <%= image_submit_tag("trash.svg", class: 'trash-btn') %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
 
   <%= form_with(url: "/order", method: "post", class: "input-section") do %>
     <%= button_tag 'Place Order', class: "add-btn" %>

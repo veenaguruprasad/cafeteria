@@ -30,4 +30,11 @@ class CartsController < ApplicationController
       redirect_to "/"
     end
   end
+
+  def destroy
+    id = params[:id]
+    cart_item = current_user.cart.find(id)
+    cart_item.destroy
+    redirect_to "/"
+  end
 end
